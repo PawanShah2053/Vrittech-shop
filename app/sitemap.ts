@@ -6,9 +6,16 @@ import type { Product } from '@/types';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://example.com';
-  const products = await apiFetch<Product[]>(API_ENDPOINTS.products, {
-    next: { revalidate: 3600 }
-  });
+  
+  let products: Product[] = [];
+  try {
+    products = await apiFetch<Product[]>(API_ENDPOINTS.products, {
+      next: { revalidate: 3600 }
+    });
+  } catch (error) {
+    // During build, API might not be available. Return minimal sitemap.
+    console.warn('Failed to fetch products for sitemap:', error);
+  }
 
   return [
     {

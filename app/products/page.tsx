@@ -24,14 +24,22 @@ export const metadata: Metadata = {
 export default async function ProductsPage({ searchParams }: ProductsPageProps) {
   const sort = searchParams?.sort === 'desc' ? 'desc' : 'asc';
 
-  const [products, categories] = await Promise.all([
-    apiFetch<Product[]>(`${API_ENDPOINTS.products}?sort=${sort}`, {
-      next: { revalidate: 300 }
-    }),
-    apiFetch<string[]>(API_ENDPOINTS.categories, {
-      next: { revalidate: 3600 }
-    })
-  ]);
+  let products: Product[] = [];
+  let categories: string[] = [];
+  
+  try {
+    [products, categories] = await Promise.all([
+      apiFetch<Product[]>(`${API_ENDPOINTS.products}?sort=${sort}`, {
+        next: { revalidate: 300 }
+      }),
+      apiFetch<string[]>(API_ENDPOINTS.categories, {
+        next: { revalidate: 3600 }
+      })
+    ]);
+  } catch (error) {
+    // During build, API might not be available. Continue with empty data.
+    console.warn('Failed to fetch products:', error);
+  }
 
   const initialFilters: ProductFilters = {
     category: searchParams?.category ?? '',
