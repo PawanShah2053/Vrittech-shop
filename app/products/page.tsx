@@ -40,7 +40,6 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
       })
     ]);
   } catch (error) {
-    // Log error but continue - show empty state
     console.error('Failed to fetch products:', error);
   }
 
@@ -60,7 +59,6 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
     description: 'Product listing page for the e-commerce dashboard.',
     url: 'https://example.com/products'
   };
-
   return (
     <div className="space-y-8">
 

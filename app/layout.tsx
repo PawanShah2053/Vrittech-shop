@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: '%s | Virttech Shop Dashboard'
   },
   description: 'A modern e-commerce dashboard built with Next.js, TypeScript, and Fake Store API.',
-  metadataBase: new URL('https://example.com')
+  metadataBase: new URL('https://vrittech-shop.vercel.app/')
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
