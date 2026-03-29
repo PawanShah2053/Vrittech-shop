@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import ProductsPage from './products/page';
 
 export default function HomePage() {

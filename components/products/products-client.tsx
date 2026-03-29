@@ -22,7 +22,7 @@ export function ProductsClient({ products, categories, initialFilters }: Product
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [filters, setFilters] = useState<ProductFilters>(initialFilters);
-  const [isPending, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
 
   const filteredProducts = useMemo(() => {
     const min = filters.minPrice ? Number(filters.minPrice) : 0;

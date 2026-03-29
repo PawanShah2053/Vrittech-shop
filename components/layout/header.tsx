@@ -1,9 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 
-import { cn } from '@/lib/utils';
 import { useCartStore } from '@/stores/cart-store';
 import { useAuthStore } from '@/stores/auth-store';
 import { useMounted } from '@/hooks/use-mounted';
@@ -11,7 +9,6 @@ import { useMounted } from '@/hooks/use-mounted';
 ;
 
 export function Header() {
-  const pathname = usePathname();
   const mounted = useMounted();
   const totalItems = useCartStore((state) => state.totalItems);
   const { isAuthenticated, username, logout } = useAuthStore();

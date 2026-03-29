@@ -26,19 +26,19 @@ export default function TrendingCoursesSection() {
             </div>
 
             <div className="mt-8 flex items-center gap-8 md:gap-6">
-              <img src="/image/react.png" className=" md:h-18 md:w-32" />
+              <img src="/image/react.png" alt="React" className=" md:h-18 md:w-32" />
 
               <div className="relative flex items-center gap-1 text-[12px] md:text-[34px]">
-               <img src="/image/Frame.png"  className=" md:h-36 md:w-48" />
+               <img src="/image/Frame.png" alt="Course Frame" className=" md:h-36 md:w-48" />
                 
               </div>
 
               <div className="relative flex items-center">
-                <img src="/image/Frame1.png" className=" md:h-36 md:w-48" />
+                <img src="/image/Frame1.png" alt="Course Frame 1" className=" md:h-36 md:w-48" />
               </div>
 
               <div className="relative flex items-center">
-                <img src="/image/Frame2.png" className=" md:h-24 md:w-36" />
+                <img src="/image/Frame2.png" alt="Course Frame 2" className=" md:h-24 md:w-36" />
               </div>
             </div>
 
@@ -53,7 +53,7 @@ export default function TrendingCoursesSection() {
                   All Courses
                 </h2>
                 <p className="mt-2 max-w-[320px] text-[22px] leading-[1.25]  text-[#ffeef0] md:text-[16px]">
-                  courses you're powering <br /> through right now.
+                  courses you&apos;re powering <br /> through right now.
                 </p>
                  
               </div>
