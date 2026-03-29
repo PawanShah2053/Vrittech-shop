@@ -21,8 +21,8 @@ export const metadata: Metadata = {
   description: 'Browse products with server-side rendering, client-side filters, and persistent cart state.'
 };
 
-
 export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export default async function ProductsPage({ searchParams }: ProductsPageProps) {
   const sort = searchParams?.sort === 'desc' ? 'desc' : 'asc';
@@ -33,10 +33,10 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
   try {
     [products, categories] = await Promise.all([
       apiFetch<Product[]>(`${API_ENDPOINTS.products}?sort=${sort}`, {
-        next: { revalidate: 0 }
+        cache: 'no-store'
       }),
       apiFetch<string[]>(API_ENDPOINTS.categories, {
-        next: { revalidate: 0 }
+        cache: 'no-store'
       })
     ]);
   } catch (error) {

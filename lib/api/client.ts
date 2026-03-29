@@ -34,6 +34,7 @@ async function parseResponse<T>(response: Response): Promise<T> {
 export async function apiFetch<T>(path: string, config: RequestConfig = {}): Promise<T> {
   const response = await fetch(`${API_BASE_URL}${path}`, {
     ...config,
+    cache: 'no-store',
     headers: {
       'Content-Type': 'application/json',
       ...(config.headers || {})
