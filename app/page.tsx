@@ -7,14 +7,7 @@ export default function HomePage() {
     <section >
       <div>
        
-     <ProductsPage searchParams={{
-          category: undefined,
-          search: undefined,
-          minPrice: undefined,
-          maxPrice: undefined,
-          page: undefined,
-          sort: undefined
-        }} />
+     <ProductsPage  /> 
       </div>
 
      

@@ -5,7 +5,7 @@ import { API_ENDPOINTS } from '@/lib/api/endpoints';
 import type { Product } from '@/types';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://example.com';
+  const baseUrl = 'https://vrittech-shop.vercel.app';
   
   let products: Product[] = [];
   try {
@@ -13,7 +13,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       next: { revalidate: 3600 }
     });
   } catch (error) {
-    // During build, API might not be available. Return minimal sitemap.
     console.warn('Failed to fetch products for sitemap:', error);
   }
 

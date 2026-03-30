@@ -57,7 +57,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
     '@type': 'CollectionPage',
     name: 'Shop Products',
     description: 'Product listing page for the e-commerce dashboard.',
-    url: 'https://example.com/products'
+    url: 'https://vrittech-shop.vercel.app/products',
   };
   return (
     <div className="space-y-8">
