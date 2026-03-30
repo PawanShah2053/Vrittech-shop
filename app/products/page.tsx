@@ -30,10 +30,10 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
   try {
     [products, categories] = await Promise.all([
       apiFetch<Product[]>(`${API_ENDPOINTS.products}?sort=${sort}`, {
-        cache: 'no-store'
+        next: { revalidate: 3600 }
       }),
       apiFetch<string[]>(API_ENDPOINTS.categories, {
-        cache: 'no-store'
+        next: { revalidate: 3600 }
       })
     ]);
   } catch (error) {
