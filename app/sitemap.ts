@@ -1,7 +1,5 @@
 import type { MetadataRoute } from 'next';
 
-export const revalidate = 3600;
-
 type Product = {
   id: number | string;
 };
