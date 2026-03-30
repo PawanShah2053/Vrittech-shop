@@ -21,7 +21,9 @@ async function parseResponse<T>(response: Response): Promise<T> {
 
   if (!response.ok) {
     const message =
-      typeof payload === 'object' && payload && 'message' in payload
+      typeof payload === 'object' &&
+      payload &&
+      'message' in payload
         ? String(payload.message)
         : 'Something went wrong while talking to the API.';
 
@@ -31,14 +33,16 @@ async function parseResponse<T>(response: Response): Promise<T> {
   return payload as T;
 }
 
-export async function apiFetch<T>(path: string, config: RequestConfig = {}): Promise<T> {
+export async function apiFetch<T>(
+  path: string,
+  config: RequestConfig = {}
+): Promise<T> {
   const response = await fetch(`${API_BASE_URL}${path}`, {
     ...config,
-    cache: 'no-store',
     headers: {
       'Content-Type': 'application/json',
-      ...(config.headers || {})
-    }
+      ...(config.headers || {}),
+    },
   });
 
   return parseResponse<T>(response);
